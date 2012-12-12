@@ -1,0 +1,179 @@
+/* CSS for timepicker */
+@import url('timepicker.css');
+
+/* CSS for datepicker */
+@import url('pickadate.css');
+
+body {
+  background: whiteSmoke;
+}
+
+#my-header {
+  margin: 10px 0;
+  background: #F1F2EF;
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+
+h3.prod_name a {
+  color: #dc9b00;
+  letter-spacing: 1px;
+  font-size: 35px;
+}
+
+h3.prod_name a:hover {
+  text-decoration: none;
+}
+
+.top-search {
+  margin-top: 18px;
+}
+
+ul.my-left-nav {
+  margin: 0 0 0 8px;
+  padding-right: 22px;
+  border-right: 1px solid #ddd;
+}
+
+ul.my-left-nav li{
+  border-bottom: 1px solid #ddd;
+  padding: 5px 0;
+  list-style: none;
+}
+
+ul.my-left-nav li a {
+  text-decoration: none;
+  padding-left: 8px;
+}
+
+ul.my-left-nav li:hover {
+  background: #F1F2EF;
+}
+
+ul.my-nav-list {
+  margin: 3px 3px;
+}
+
+ul.my-nav-list li {
+  border-bottom: 1px solid #ddd;
+  padding: 2px 0;
+  list-style: none;
+}
+
+ul.my-nav-list li a{
+  text-decoration: none;
+}
+
+ul.que-a li a {
+  text-decoration: none;
+}
+
+#middle-bar {
+    background: none;
+    color: #949494;
+    font-size: 22px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    padding: 12px 0;
+    border-top: 1px solid #ddd; /*F3F3F3;*/
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 16px;
+}
+
+.my-hr {
+  display: block;
+  border-top: 1px solid #E5E5E5;
+  border-bottom: none;
+}
+
+#middle-bar-small {
+    background: none;
+    color: #949494;
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    padding: 8px 0;
+    /*border-top: 1px solid #ddd;*/
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 16px;
+}
+
+.btn-bar {
+  vertical-align: center;
+  margin-top: -4px;
+}
+
+.section-bar {
+  vertical-align: center;
+  margin-top: -12px;
+}
+
+.my-btn-round {
+  border-radius: 12px;
+}
+
+.btn-bar-small {
+  vertical-align: center;
+  margin-top: -2px;
+  letter-spacing: none;
+}
+
+.input-append {
+  width: 168px;
+}
+
+input.hasDatepicker {
+    background-image: url("../img/form/calendar.png");
+    background-position: 8px 50%;
+    background-repeat: no-repeat;
+    background-size: 11px 12px;
+    cursor: pointer;
+    text-indent: 19px;
+}
+
+#section img.patient_image {
+  margin-top: -12px;
+  margin-bottom: 5px;
+}
+
+.patient_image{
+  padding: 2px;
+  border: 1px solid #ddd;
+  margin: 5px 10px 5px 5px;
+  width: 70px;
+  float: left;
+}
+
+.section_image {
+  padding: 1px;
+  border: 1px solid #ddd; 
+  height: 30px;
+  margin-bottom: 12px;
+}
+
+#pad {
+  padding: 5px 0;
+}
+
+
+/*
+ * ---------------------------------------
+ * CSs for printing
+ * ---------------------------------------
+ */
+@media print {
+  body * {
+    visibility:hidden;
+  }
+  #no_print {
+  	visibility: hidden;
+  }
+  #print_section, #print_section * {
+    visibility:visible;
+  }
+  #print_section {
+    position:absolute;
+    left:0;
+    top:0;
+  }
+}

@@ -7,7 +7,6 @@ class DoctorOrder extends Elegant {
 
 	protected $rules = array(
 			'patient_id' => 'required|integer',
-			'order_date' => 'required',
 			'order_type_id' => 'required',
 			'doctor_order' => 'required',
 		);

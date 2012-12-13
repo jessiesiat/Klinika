@@ -1,5 +1,10 @@
 @layout('layouts.clean')
 
+@section('styles')
+  @parent
+  {{ HTML::style('css/chosen.css') }}
+@endsection
+
 @section('content')
 
 <div class="span9">
@@ -82,8 +87,32 @@
 
       <div class="tab-pane" id="doctor-orders">
         <div class="below-tab small-font">
-          <a href="#">New Doctor's Order</a> - Create new doctor order.
+          <a href="#" class="alink">New Doctor's Order</a> - Create new doctor order.
           <a href="#">New Order Type</a> - Type of order by the doctor.
+        </div>
+        <div style="display:none" class="doctor-order-form">
+          {{ Form::open(action('DoctorOrder@create'), 'POST', array('class' => 'form-horizontal')) }}
+          <div class="pull-right">
+            {{ Form::submit('Save Doctor Order', ['class' => 'btn btn-primary']) }} or <a href="javascript::void(0)" class="close-link italic"><em>Cancel</em></a>
+          </div>
+          {{ Form::hidden('patient_id', $pdetails->id) }}
+          <div class="control-group">
+            {{ Form::label('order-type', 'Order Type', array('class' => 'control-label')) }}
+            <div class="controls">
+              <select name="order_type_id" class="chzn" data-placeholder="Choose a type..." tabindex="2">
+                @foreach(DB::table('ref_doctor_order_types')->get() as $type)
+                  <option value="{{ $type->id }}"> {{ $type->order_type }} </option>
+                @endforeach
+              </select>
+            </div>
+          </div>
+          <div class="control-group">
+            {{ Form::label('doctor_order', 'Doctor Order', array('class' => 'control-label')) }}
+            <div class="controls">
+            {{ Form::textarea('doctor_order', '', ['rows' => 4]) }}
+            </div>
+          </div>
+          {{ Form::close() }}
         </div>
         <table class="table table-condensed table-striped">
             <thead>
@@ -183,10 +212,19 @@
 
 @section('scripts')
 @parent
+{{ HTML::script('js/chosen.jquery.min.js') }}
 <script>
+  $(".chzn-select").chosen(); 
+  $(".chzn-select-deselect").chosen({allow_single_deselect:true});
   $('#myTab a').click(function (e) {
       e.preventDefault();
       $(this).tab('show');
+  });
+  $('.alink').click(function(e){
+    $('.doctor-order-form').show();
+  });
+  $('.close-link').click(function(e){
+    $('.doctor-order-form').hide();
   });
 </script>
 @endsection

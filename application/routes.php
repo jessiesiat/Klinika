@@ -1,6 +1,6 @@
 <?php
 
-Route::controller(array('patient', 'medicine', 'appointment', 'supplier', 'patientawait', 'billing', 'inventory', 'user', 'company', 'service'));
+Route::controller(array('patient', 'medicine', 'appointment', 'supplier', 'patientawait', 'billing', 'inventory', 'user', 'company', 'service', 'DoctorOrder'));
 
 //Experimenting wit backbone
 

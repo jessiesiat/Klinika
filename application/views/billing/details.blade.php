@@ -4,7 +4,7 @@
 
 <div id="print_section">
 	<div id="middle-bar-small">
-		Appointment Details for {{ $phistory->patient->f_name.' '.$phistory->patient->l_name }}
+		Service Details for {{ $phistory->patient->f_name.' '.$phistory->patient->l_name }}
 		<div class="pull-right" id="no_print"><a HREF="javascript:window.print()" alt="print" title="Print"><i class="icon-print"></i></a></div>
 	</div>
 	
@@ -24,7 +24,7 @@
 	</ul>
 
 	<hr />
-	<div class="span4 pull-right">
+	<div class="span4 pull-right" id="no_print">
 		@if($phistory->is_billed)
 		<i>This item is paid.</i>
 		@else

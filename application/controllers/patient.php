@@ -103,7 +103,7 @@ class Patient_Controller extends Base_Controller {
 
 	public function get_details($patient_id)
 	{
-		$pdetails = Patient::with('history')->find($patient_id);
+		$pdetails = Patient::with(['history', 'doctorOrders'])->find($patient_id);
 		$services = Service::get();
 
 		return View::make('patient.details')

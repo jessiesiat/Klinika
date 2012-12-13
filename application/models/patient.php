@@ -19,6 +19,11 @@ class Patient extends Elegant {
 		return $this->has_many('PatientHistory');
 	}
 
+	public function doctorOrders()
+	{
+		return $this->has_many('DoctorOrder');
+	}
+
 	public static function fullName($patient_id)
 	{
 		$thiss = new Patient();

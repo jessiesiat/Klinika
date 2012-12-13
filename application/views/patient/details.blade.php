@@ -24,14 +24,17 @@
   </div>
   <hr/>
 
-  <ul class="nav nav-tabs" id="myTab">
+  <ul class="nav nav-tabs" id="myTab" style="margin-bottom: 1px;">
       <li class="active"><a href="#basic-info">Basic Info</a></li>
       <li><a href="#history">History</a></li>
+      <li><a href="#doctor-orders">Doctor Orders</a></li>
   </ul>
 
   <div class="tab-content">
       <div class="tab-pane active" id="basic-info">
-        <a href="{{ action('patient.edit', array($pdetails->id)) }}" class="pull-right muted"><i class="icon-edit"></i></a>
+        <div class="below-tab small-font">
+          <a href="{{ action('patient.edit', array($pdetails->id)) }}" title="Edit">Edit Basic Info.</a> - Edit patient basic info.
+        </div>        
         <p>Address1: {{ ($pdetails->address1) ? $pdetails->address1 : 'n/a' }}</p>
         <p>Address2: {{ ($pdetails->address2) ? $pdetails->address2 : 'n/a' }}</p>
         <p>Gender: {{ $pdetails->gender }}</p>
@@ -46,6 +49,9 @@
       </div>
 
       <div class="tab-pane" id="history">
+        <div class="below-tab small-font">
+          Patient history 
+        </div>
         <table class="table table-condensed table-striped">
             <thead>
               <tr>
@@ -73,8 +79,36 @@
             </tbody>
         </table>
       </div>
+
+      <div class="tab-pane" id="doctor-orders">
+        <div class="below-tab small-font">
+          <a href="#">New Doctor's Order</a> - Create new doctor order.
+          <a href="#">New Order Type</a> - Type of order by the doctor.
+        </div>
+        <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th>Date</th><th>Order Type</th><th>Order</th><th>Comment</th></th>
+              </tr>
+            </thead>
+            <tbody>
+              @forelse($pdetails->doctorOrders as $order)
+              <tr>
+                <td>{{ $order->order_date }}</td>
+                <td>{{ $order->order_type_id }}</td>
+                <td>{{ $phistory->doctor_order }}</td>
+                <td>{{ $order->comment }}</td>
+              </tr>
+                @empty
+                <tr>
+                    <td colspan="4">Empty</td>
+                </tr>
+              @endforelse
+            </tbody>
+        </table>
+      </div>
   </div>
-  
+
 </div>
 
 <!-- Hidden Modal -->

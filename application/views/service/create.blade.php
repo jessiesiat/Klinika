@@ -21,14 +21,17 @@
 		<div class="control-group {{ $errors->has('description') ? 'error' : '' }}">
 			{{ Form::label('description', 'Description', array('class' => 'control-label')) }}
 			<div class="controls">
-				{{ Form::text('description') }}
+				{{ Form::textarea('description', '', ['rows' => 3]) }}
 				<span class="help-inline">{{ $errors->first('description') }}</span>
 			</div>
 		</div>
 		<div class="control-group {{ $errors->has('cost') ? 'error' : '' }}">
 			{{ Form::label('cost', 'Cost', array('class' => 'control-label')) }}
 			<div class="controls">
-				{{ Form::text('cost') }}
+				<div class="input-prepend">
+				<span class="add-on">PHP</span>
+				{{ Form::text('cost', '', ['class' => 'input-append']) }}
+				</div>
 				<span class="help-inline">{{ $errors->first('cost') }}</span>
 			</div>
 		</div>

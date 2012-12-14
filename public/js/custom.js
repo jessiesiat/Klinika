@@ -1,8 +1,29 @@
 $(function(){
       
-      //$("#psearch input").suggestion({
-      //  url:"patient/search"
-      //});
+  if($('.global-notice').html().length > 0){
+    $('.global-notice').slideDown();
+
+    setTimeout(function(){
+      $('.global-notice').slideUp();
+    }, 10000);
+
+    $('.global-notice').live('click', function(){
+      $('.global-notice').slideUp();
+    });
+
+  }
+
+  var saving = false;
+
+  function saving_toggle(){
+    if(saving){
+      $('.global-saving').hide();
+      saving = false;
+    }else{
+      $('.global-saving').show();
+      saving = true;
+    }
+  }
 
       $('#load-content').click(function(e){
           e.preventDefault();

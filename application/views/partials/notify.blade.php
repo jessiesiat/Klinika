@@ -1,19 +1,2 @@
-@if(Session::has('error') || Session::has('success'))
-<div class="row-fluid">
-	<div class="span12">
-		@if(Session::has('error'))
-			<div class="alert alert-error">
-				<a href="#" class="close" data-dismiss="alert">×</a>
-				{{ Session::get('error') }}
-			</div>
-		@endif
-
-		@if(Session::has('success'))
-			<div class="alert alert-success">
-				<a href="#" class="close" data-dismiss="alert">×</a>
-				{{ Session::get('success') }}
-			</div>
-		@endif
-	</div>
-</div>
-@endif
+<a href="javascript:void(0);" title="Click to close" class="global-notice <?php echo Session::has('error')? 'global-error' : 'global-success'; ?>">{{ Session::get('error').Session::get('success') }}</a>
+<a href="javascript: void(0);" class="global-saving"><span></span></a>

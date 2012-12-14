@@ -5,7 +5,7 @@
 	@if(isset($supplier))
 		<div id="middle-bar-small">Edit Supplier</div>
 		{{ Form::open(action('supplier.edit'), 'POST', array('class' => 'form-horizontal')) }}
-            <div class="control-group {{ $errors->has('name') ? 'error' : '' }}">   
+            <div class="control-group {{ $errors->has('supplier_name') ? 'error' : '' }}">   
 				{{ Form::hidden('supplier_id', $supplier->id) }}
 				{{ Form::label('supplier_name', 'Supplier Name', array('class' => 'control-label')) }}
 				<div class="controls">
@@ -51,7 +51,7 @@
 	@else
 		<div id="middle-bar-small">New Supplier</div>
 		{{ Form::open(action('supplier.new'), 'POST', array('class' => 'form-horizontal')) }}
-			<div class="control-group {{ $errors->has('name') ? 'error' : '' }}">
+			<div class="control-group {{ $errors->has('supplier_name') ? 'error' : '' }}">
 				{{ Form::label('supplier_name', 'Supplier Name', array('class' => 'control-label')) }}
 				<div class="controls">
 				{{ Form::text('supplier_name', Input::old('supplier_name')) }}

@@ -6,6 +6,8 @@
 
   </div>
   
+  @include('partials.notify')
+  
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -15,6 +17,7 @@
       {{ HTML::script('js/jquery.js') }}
       {{ HTML::script('js/bootstrap/bootstrap.min.js') }}
       {{ HTML::script('js/pickadate.min.js') }}
+      {{ HTML::script('js/custom.js') }}
     @yield_section
 
   </body>

@@ -1,16 +1,16 @@
 /* CSS for timepicker */
 @import url('timepicker.css');
 
-/* CSS for datepicker */
+/* CSS for datepicker whiteSmoke */
 @import url('pickadate.css');
 
 body {
-  background: whiteSmoke;
+  background: #f9f9f9;
 }
 
 #my-header {
   margin: 10px 0;
-  background: #F1F2EF;
+  border-bottom: 1px solid #F1F2EF;
   padding: 0 12px;
   box-sizing: border-box;
 }

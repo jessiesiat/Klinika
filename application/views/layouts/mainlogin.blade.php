@@ -18,11 +18,11 @@
   <link rel="stylesheet" href="stylesheets/foundation.css">
   -->
   
+  @section('styles')
   <!-- Included CSS Files (Compressed) -->
   {{ HTML::style('css/foundation.min.css') }}
-  {{ HTML::style('css/app.css') }}
-  
   {{ HTML::script('js/modernizr.foundation.js') }}
+  @yield_section
 
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
@@ -32,8 +32,6 @@
 </head>
 <body>
 
-  @include('partials.notify')
-  
   @yield('content')  
   
   <!-- Included JS Files (Uncompressed) -->
@@ -68,10 +66,7 @@
   -->
   
   <!-- Included JS Files (Compressed) -->
-  {{ HTML::script('js/jquery.js') }}
   {{ HTML::script('js/foundation.min.js') }}
 
-  <!-- Initialize JS Plugins -->
-  {{ HTML::script('js/app.js') }}
 </body>
 </html>

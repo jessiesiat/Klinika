@@ -41,7 +41,9 @@ Route::post('login', function()
 		return Redirect::to('/');
 	}
 
-	return Redirect::to('login');
+	return Redirect::to('login')
+				->with('error', 'Invalid login')
+				->with_input();
 
 });
 

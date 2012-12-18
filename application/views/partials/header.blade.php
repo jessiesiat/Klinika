@@ -17,6 +17,9 @@
       body{ 
         margin-top: 35px;
       }
+       a.logout {
+          color: #999;
+        }
       </style>
     @yield_section
 
@@ -56,7 +59,7 @@
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right">
               @if(Auth::check())
-                   Today is {{ date('Y') }}, logged in as {{ Auth::user()->username }} | {{ HTML::link('logout', 'Logout') }}
+                   {{ date('F n, Y', time()) }}, logged in as {{ Auth::user()->username }} | {{ HTML::link('logout', 'Logout', ['class' => 'logout']) }}
               @endif
             </p>
             <ul class="nav">
@@ -69,7 +72,15 @@
                   <li>{{ HTML::link_to_action('medicine', 'Medicines') }}</li>
                   <li>{{ HTML::link_to_action('supplier', 'Supplier') }}</li>
                   <li>{{ HTML::link_to_action('company', 'Company') }}</li>
-                  <li>{{ HTML::link_to_action('service', 'Services') }}</li>
+                  <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">Reference Tables</a>
+                    <ul class="dropdown-menu">
+                      <li>{{ HTML::link_to_action('service', 'Services') }}</li>
+                      <li>{{ HTML::link_to_action('PatientType', 'Patient Type') }}</li>
+                      <li>{{ HTML::link_to_action('VisitType', 'Visit Type') }}</li>
+                      <li>{{ HTML::link_to_action('PaymentMode', 'Payment Mode') }}</li>
+                    </ul>
+                  </li>
                 </ul>
               </li>
               <li>{{ HTML::link_to_action('billing', 'Billing') }}</li>

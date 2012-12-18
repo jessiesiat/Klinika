@@ -1,11 +1,13 @@
 
-    <hr>
     <footer>
-      <p>&copy; Company 2012</p>
+      <hr />
+      <span>&copy; 2012 PSRI</span>
     </footer>
 
-  </div>
+  </div> <!-- End of ID container-fluid -->
   
+</div> <!-- End of ID Holder -->
+
   @include('partials.notify')
   
     <!-- Le javascript

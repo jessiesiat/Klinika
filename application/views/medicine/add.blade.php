@@ -23,9 +23,8 @@
 		      {{ Form::text('qty', Input::old('qty'), array('class' => 'input')) }}
 		      {{ Form::hidden('uom', 'tablet') }}
 		   	  <select name="uom" class="input-small chzn-select" data-placeholder="Choose a type..." tabindex="2" disabled >
-			    <option value="tablet">tablet</option>
-			    <option value="mat">mat</option>
-			    <option value="box">box</option>
+			    <option value="tablet" {{ ($medicine->purchase_uom == 'tabled') ? 'selected' : '' }} >tablet</option>
+			    <option value="ml" {{ ($medicine->purchase_uom == 'ml') ? 'selected' : '' }} >ML</option>
 		      </select>   
 		      <span class="help-inline">{{ $errors->first('qty').' '.$errors->first('uom') }}</span>
 		    </div>
@@ -75,7 +74,7 @@
 				formatSubmit: 'yyyy-mm-dd',
 				dateMax: true,
 			});
-			$(".chzn-select").chosen(); 
+			//$(".chzn-select").chosen(); 
 		$(".chzn-select-deselect").chosen({allow_single_deselect:true});
 		});
 	</script>

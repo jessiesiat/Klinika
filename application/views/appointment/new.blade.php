@@ -131,10 +131,10 @@
 				dateMin: true,
 			});
 			$("#datepicker").datepicker({ minDate: 0, dateFormat: 'yy-mm-dd' });
-			$('.spatient').colorbox({href:BASE + '/patient/msearch', width: '70%', height: '50%'});
+			//$('.spatient').colorbox({href:BASE + '/patient/msearch', width: '70%', height: '50%'});
 			$('.timepicker-default').timepicker();
 		});
 	</script>
 	{{ HTML::script('js/bootstrap/bootstrap-timepicker.js') }}
-	{{ HTML::script('js/colorbox/jquery.colorbox-min.js') }}
+	{{-- HTML::script('js/colorbox/jquery.colorbox-min.js') --}}
 @endsection

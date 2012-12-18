@@ -4,8 +4,30 @@
 /* CSS for datepicker whiteSmoke */
 @import url('pickadate.css');
 
-body {
+html,body {
   background: #f9f9f9;
+  height: 100%;
+}
+
+#holder{
+    min-height: 100%;
+    position:relative;
+}
+
+footer{
+    bottom: 0;
+    height: 100px;
+    left: 40px;
+    position: absolute;
+}
+
+footer span {
+  color: #999;
+  font-size: .85em;
+}
+
+.body {
+  padding-bottom: 95px;
 }
 
 #my-header {
@@ -123,6 +145,15 @@ ul.que-a li a {
 }
 
 input.hasDatepicker {
+    background-image: url("../img/form/calendar.png");
+    background-position: 8px 50%;
+    background-repeat: no-repeat;
+    background-size: 11px 12px;
+    cursor: pointer;
+    text-indent: 19px;
+}
+
+input.calendar {
     background-image: url("../img/form/calendar.png");
     background-position: 8px 50%;
     background-repeat: no-repeat;

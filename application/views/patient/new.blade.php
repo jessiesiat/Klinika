@@ -43,9 +43,9 @@
 		    </div>
 	    </div>
 	    <div class="control-group {{ $errors->has('birthdate') ? 'error' : '' }}">
-			{{ Form::label('birthdate', 'Birth Date', array('class' => 'control-label')) }}
+			{{ Form::label('birthdate', 'Birth Date (yyyy-mm-dd)', array('class' => 'control-label')) }}
 			<div class="controls">
-				{{ Form::text('birthdate', Input::old('birthdate'), array('placeholder' => 'yyyy-mm-dd', 'class' => 'hasDatepicker')) }}
+				{{ Form::text('birthdate', Input::old('birthdate'), array('placeholder' => 'yyyy-mm-dd', 'class' => 'calendar')) }}
 				<span class="help-inline">{{ $errors->first('birthdate') }}</span>
 			</div>
 		</div>

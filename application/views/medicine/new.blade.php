@@ -61,9 +61,8 @@
 		    {{ Form::label('purchase_uom', 'Purchase UOM', array('class' => 'control-label')) }}
 		    <div class="controls">
 		      <select name="purchase_uom" class="chzn-select" data-placeholder="Choose a type..." tabindex="2">
-			    <option value="tablet" {{ ($medicine->purchase_uom == 'tablet') ? 'selected' : '' }} >tablet</option>
-			    <option value="mat" {{ ($medicine->purchase_uom == 'mat') ? 'selected' : '' }} >mat</option>
-			    <option value="box" {{ ($medicine->purchase_uom == 'box') ? 'selected' : '' }} >box</option>
+			    <option value="tablet" {{ ($medicine->purchase_uom == 'tablet') ? 'selected' : '' }} >Tablet</option>
+			    <option value="mat" {{ ($medicine->purchase_uom == 'ml') ? 'selected' : '' }} >ML</option>
 		      </select>
 		      <span class="help-inline">{{ $errors->first('purchase_uom') }}</span>
 		    </div>
@@ -100,9 +99,8 @@
 		    {{ Form::label('selling_uom', 'Selling UOM', array('class' => 'control-label')) }}
 		    <div class="controls">
 		      <select name="selling_uom" class="chzn-select" data-placeholder="Choose a type..." tabindex="2">
-			    <option value="tablet" {{ ($medicine->selling_uom == 'tablet') ? 'selected' : '' }} >tablet</option>
-			    <option value="mat" {{ ($medicine->selling_uom == 'mat') ? 'selected' : '' }} >mat</option>
-			    <option value="box" {{ ($medicine->selling_uom == 'box') ? 'selected' : '' }} >box</option>
+			    <option value="tablet" {{ ($medicine->selling_uom == 'tablet') ? 'selected' : '' }} >Tablet</option>
+			    <option value="mat" {{ ($medicine->selling_uom == 'ml') ? 'selected' : '' }} >ML</option>
 		      </select>
 		      <span class="help-inline">{{ $errors->first('selling_uom') }}</span>
 		    </div>
@@ -185,9 +183,8 @@
 		    {{ Form::label('purchase_uom', 'Purchase UOM', array('class' => 'control-label')) }}
 		    <div class="controls">
 		      <select name="purchase_uom" class="chzn-select" data-placeholder="Choose a type..." tabindex="2">
-			    <option value="tablet" {{ (Input::old('purchase_uom') == 'tablet') ? 'selected' : '' }} >tablet</option>
-			    <option value="mat" {{ (Input::old('purchase_uom') == 'mat') ? 'selected' : '' }} >mat</option>
-			    <option value="box" {{ (Input::old('purchase_uom') == 'box') ? 'selected' : '' }} >box</option>
+			    <option value="tablet" {{ (Input::old('purchase_uom') == 'tablet') ? 'selected' : '' }} >Tablet</option>
+			    <option value="mat" {{ (Input::old('purchase_uom') == 'ml') ? 'selected' : '' }} >ML</option>
 		      </select>
 		      <span class="help-inline">{{ $errors->first('purchase_uom') }}</span>
 		    </div>
@@ -224,9 +221,8 @@
 		    {{ Form::label('selling_uom', 'Selling UOM', array('class' => 'control-label')) }}
 		    <div class="controls">
 		      <select name="selling_uom" class="chzn-select" data-placeholder="Choose a type..." tabindex="2">
-			    <option value="tablet" {{ (Input::old('selling_uom') == 'tablet') ? 'selected' : '' }} >tablet</option>
-			    <option value="mat" {{ (Input::old('selling_uom') == 'mat') ? 'selected' : '' }} >mat</option>
-			    <option value="box" {{ (Input::old('selling_uom') == 'box') ? 'selected' : '' }} >box</option>
+			    <option value="tablet" {{ (Input::old('selling_uom') == 'tablet') ? 'selected' : '' }} >Tablet</option>
+			    <option value="mat" {{ (Input::old('selling_uom') == 'ml') ? 'selected' : '' }} >ML</option>
 		      </select>
 		      <span class="help-inline">{{ $errors->first('selling_uom') }}</span>
 		    </div>
@@ -263,7 +259,7 @@
 	@parent
 	{{ HTML::script('js/chosen.jquery.min.js') }}
 	<script type='text/javascript'>
-		$(".chzn-select").chosen(); 
+		//$(".chzn-select").chosen(); 
 		$(".chzn-select-deselect").chosen({allow_single_deselect:true});
 	</script>
 @endsection

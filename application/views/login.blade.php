@@ -3,7 +3,7 @@
 @section('content')
 
 	<div class="row">
-		<div class="six columns offset-by">
+		<div class="six columns">
 		<h3 class="prod_name"><a href="/laravel">Klinika</a>  <small>A Clinic Management Software</small></h3>
 		</div>
 	</div>

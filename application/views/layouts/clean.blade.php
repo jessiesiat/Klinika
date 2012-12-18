@@ -1,6 +1,9 @@
 @include('partials.header')
 
-  <div class="container-fluid">
+
+<div id="holder">
+
+  <div class="container-fluid body">
 
     @include('partials.notify')
 
@@ -23,11 +26,10 @@
         <ul class="my-left-nav">
           <li><i class="icon-chevron-right"></i>{{ HTML::link_to_action('patient', 'Patients') }}</li>
           <li><i class="icon-chevron-right"></i>{{ HTML::link_to_action('appointment', 'Appointments') }}</li>
-          <li><i class="icon-chevron-right"></i><a href="#">Patient Record</a></li>
           <li><i class="icon-chevron-right"></i>{{ HTML::link_to_action('billing', 'Patient Billing') }}</li>
           <li><i class="icon-chevron-right"></i>{{ HTML::link_to_action('inventory', 'Inventory') }}</li>
           <li><i class="icon-chevron-right"></i>{{ HTML::link_to_action('medicine', 'Medicines') }}</li>
-          <li><i class="icon-chevron-right"></i>{{ HTML::link_to_action('supplier', 'Supplier') }}</li>
+          <li><i class="icon-chevron-right"></i>{{ HTML::link_to_action('supplier', 'Suppliers') }}</li>
         </ul>
         </div>
       </div>

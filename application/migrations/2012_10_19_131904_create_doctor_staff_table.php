@@ -25,6 +25,7 @@ class Create_Doctor_Staff_Table {
 			$table->string('mobile');
 			$table->string('address');
 			$table->text('notes');
+			$table->boolean('is_doctor')->default(0); //0=staff 1=doctor
 			$table->timestamps();
 		});
 	}

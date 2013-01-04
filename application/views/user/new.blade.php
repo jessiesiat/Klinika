@@ -1,5 +1,11 @@
 @layout('layouts.main')
 
+@section('breadcrumb')
+  @parent
+  <li><a href="{{ URL::to_action('user') }}">Users</a> <span class="divider">/</span></li>
+  <li class="active">New</li>
+@endsection
+
 @section('content')
 
 <form class="form-horizontal" action='' method="POST">

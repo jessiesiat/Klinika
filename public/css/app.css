@@ -72,6 +72,10 @@ ul.my-left-nav li:hover {
   background: #F1F2EF;
 }
 
+ul.my-left-nav li.active_link {
+  background: #F1F2EF;
+}
+
 ul.my-nav-list {
   margin: 3px 3px;
 }
@@ -198,16 +202,20 @@ input.calendar {
 
 /* Notices */
 .global-notice{
-  width: 100%;
+  width: 35%;
   position: absolute;
-  top: 0; left: 0;
+  top: 35px; left: 35%;
   background: #dff0d8;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   text-decoration: none;
-  text-align: center;
-  opacity: .92;
+  text-align: left;
+  opacity: .98;
   color: #c09853;
-  padding:  6px 0;
+  padding:  1px 8px 2px 16px;
+  font-size: 0.9em;
+  font-style: italic;
+  box-sizing: border-box;
+  border: 1px solid;
   display: none;
   z-index: 1200;
 }
@@ -226,6 +234,23 @@ input.calendar {
 a.global-notice:hover{
   text-decoration: none;
   color: #c09853;
+}
+
+.edge {
+  color: #999;
+  font-size: 1.2em;
+}
+
+.dash_head {
+  background: #ebeff4;
+  color: #3c5c8d;
+  letter-spacing: 1px;
+}
+
+table thead.dash_head tr th {
+  font-size: 1.1em;
+  padding: 6px 5px;
+  text-transform: uppercase;
 }
 
 /*

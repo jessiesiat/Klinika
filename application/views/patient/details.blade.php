@@ -5,9 +5,21 @@
   {{ HTML::style('css/chosen.css') }}
 @endsection
 
+@section('breadcrumb')
+  @parent
+  <li><a href="{{ URL::to_action('patient') }}">Patients</a> <span class="divider">/</span></li>
+  <li class="active">Details</li>
+@endsection
+
 @section('content')
 
 <div class="span9">
+
+  <ul class="breadcrumb">
+    <li><a href="{{ URL::to('/') }}">Home</a> <span class="divider">/</span></li>
+    <li><a href="{{ URL::to('patient') }}">Patient</a> <span class="divider">/</span></li>
+    <li class="active">Details</li>
+  </ul>
 
   <div class="pull-right">
     <ul class="my-nav-list">
@@ -22,17 +34,18 @@
     @else
       {{ HTML::image('uploads/patients_image/default.jpg', 'image', array('class' => 'patient_image')) }}      
     @endif
-  	<h5>{{ Str::upper($pdetails->f_name.' '.$pdetails->l_name) }}</h5>
-  	<i class="icon-envelope"></i> {{ $pdetails->email }}
-  	<br/><i class="icon-phone"></i> {{ $pdetails->mobile }}
-  	<p>{{ $pdetails->notes }}</p>
+  	<h4>{{ $pdetails->f_name.' '.$pdetails->l_name }}</h4>
+  	<span class="edge">{{ $pdetails->address1 }}</span>
   </div>
+  <br /><br />
   <hr/>
 
   <ul class="nav nav-tabs" id="myTab" style="margin-bottom: 1px;">
-      <li class="active"><a href="#basic-info">Basic Info</a></li>
-      <li><a href="#history">History</a></li>
+      <li class="active"><a href="#basic-info">Patient Info</a></li>
+      <li><a href="#history">Medical History</a></li>
       <li><a href="#doctor-orders">Doctor Orders</a></li>
+      <li><a href="#plan-details">Plan Details</a></li>
+      <li><a href="#images">Images</a></li>
   </ul>
 
   <div class="tab-content">
@@ -136,7 +149,16 @@
             </tbody>
         </table>
       </div>
-  </div>
+
+      <div class="tab-pane" id="plan-details">
+        Plan Details
+      </div>
+
+      <div class="tab-pane" id="images">
+        Patient Images
+      </div>
+
+  </div> <!-- End of <div class="tab-content"> -->
 
 </div>
 

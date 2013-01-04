@@ -1,5 +1,12 @@
 @layout('layouts.main')
 
+
+@section('breadcrumb')
+	@parent
+	<li class="active">Visit Type</li>
+@endsection
+
+
 @section('content')
 
 	<div id="middle-bar-small"> 

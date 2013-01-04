@@ -1,5 +1,10 @@
 @layout('layouts.main')
 
+@section('breadcrumb')
+	@parent
+	<li class="active">Billing</li>
+@endsection
+
 @section('content')
 
 	<div id="middle-bar-small">Items for Billing:</div>

@@ -29,7 +29,7 @@ class Create_Patients_Table {
 			$table->boolean('smoker');
 			$table->boolean('drinker');
 			$table->string('blood_type', 4);
-			$table->string('patient_type', 25);
+			$table->integer('patient_type');
 			$table->string('spouse_name', 45);
 			$table->string('spouse_contact_no', 22);
 			$table->text('notes');
@@ -42,13 +42,6 @@ class Create_Patients_Table {
 			$table->string('insurance');
 			$table->timestamps();
 		});
-
-		DB::table('hc_patients')->insert(array(
-				'f_name' => 'Juan',
-				'l_name' => 'Dela Cruz',
-				'address1' => 'Quiapo Manila',
-				'gender' => 'Male'
-			));
 		
 	}
 

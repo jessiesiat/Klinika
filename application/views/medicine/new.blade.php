@@ -1,9 +1,19 @@
 @layout('layouts.main')
 
- @section('styles')
- 	@parent
- 	{{ HTML::style('css/chosen.css') }}
- @endsection
+@section('styles')
+	@parent
+	{{ HTML::style('css/chosen.css') }}
+@endsection
+
+@section('breadcrumb')
+	@parent
+	<li><a href="{{ URL::to_action('medicine') }}">Medicine</a> <span class="divider">/</span></li>
+	@if(isset($medicine))
+	<li class="active">Update</li>
+	@else
+	<li class="active">New</li>
+	@endif
+@endsection
 
 @section('content')
 
@@ -60,7 +70,7 @@
 	    <div class="control-group {{ $errors->has('purchase_uom') ? 'error' : '' }}">
 		    {{ Form::label('purchase_uom', 'Purchase UOM', array('class' => 'control-label')) }}
 		    <div class="controls">
-		      <select name="purchase_uom" class="chzn-select" data-placeholder="Choose a type..." tabindex="2">
+		      <select name="purchase_uom" class="chzn-select" data-placeholder="Choose a type..." tabindex="2">      	
 			    <option value="tablet" {{ ($medicine->purchase_uom == 'tablet') ? 'selected' : '' }} >Tablet</option>
 			    <option value="mat" {{ ($medicine->purchase_uom == 'ml') ? 'selected' : '' }} >ML</option>
 		      </select>

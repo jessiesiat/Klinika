@@ -1,5 +1,11 @@
 @layout('layouts.main')
 
+@section('breadcrumb')
+	@parent
+	<li><a href="{{ URL::to_action('patienttype') }}">Patient Type</a> <span class="divider">/</span></li>
+	<li class="active">New</li>
+@endsection
+
 @section('content')
 	
 	@if(isset($patient_type))

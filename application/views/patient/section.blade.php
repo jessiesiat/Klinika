@@ -5,6 +5,12 @@
   {{ HTML::style('css/chosen.css') }}
 @endsection
 
+@section('breadcrumb')
+  @parent
+  <li><a href="{{ URL::to_action('patient') }}">Patients</a> <span class="divider">/</span></li>
+  <li class="active">Section</li>
+@endsection
+
 @section('content')
 
     <div id="middle-bar-small">
@@ -27,53 +33,45 @@
         {{ Form::hidden('await_id', $pawaits->id) }}
         {{ Form::hidden('patient_id', $pawaits->patient->id) }}
         {{ Form::hidden('date_time_in', $pawaits->time_in) }}
-        {{-- Form::hidden('service_id', $pawaits->service_id) --}}
         {{ Form::hidden('complaint', $pawaits->complaint ) }}
 
-        <div class="control-group {{ $errors->has('service_id') ? 'error' : '' }}">
-          {{ Form::label('service_id', 'Service Given', array('class' => 'control-label')) }}
-          <div class="controls">
-            <select name="service_id" class="input-xlarge chzn-select" data-placeholder="Choose a type..." tabindex="2">
-              @foreach($services as $service)
-              <option value="{{ $service->id }}">{{ $service->service_name }}</option>
-              @endforeach
-            </select>
-          </div>
-        </div>
-        <div class="control-group {{ $errors->has('complaint') ? 'error' : '' }}">
-          {{ Form::label('complaint', 'Complaints', array('class' => 'control-label')) }}
-          <div class="controls">
-            {{ Form::textarea('complaint', $pawaits->complaint, array('rows' => '2', 'class' => 'input-xlarge')) }}
-            <span class="help-inline">{{ $errors->first('complaint') }}</span>
-          </div>
-        </div>
-        <div class="control-group {{ $errors->has('procedure') ? 'error' : '' }}">
-          {{ Form::label('procedure', 'Tests and Procedures', array('class' => 'control-label')) }}
-          <div class="controls">
-            {{ Form::textarea('procedure', Input::old('procedure'), array('rows' => '2', 'class' => 'input-xlarge')) }}
-            <span class="help-inline">{{ $errors->first('procedure') }}</span>
-          </div>
-        </div>
-        <div class="control-group {{ $errors->has('diagnosis') ? 'error' : '' }} ">
-          {{ Form::label('diagnosis', 'Diagnosis', array('class' => 'control-label')) }}
-          <div class="controls">
-            {{ Form::textarea('diagnosis', Input::old('diagnosis'), array('rows' => '2', 'class' => 'input-xlarge')) }}
-            <span class="help-inline">{{ $errors->first('diagnosis') }}</span>
-          </div>
-        </div>
-        <div class="control-group {{ $errors->has('result') ? 'error' : '' }}">
-          {{ Form::label('result', 'Result', array('class' => 'control-label')) }}
-          <div class="controls">
-            {{ Form::textarea('result', Input::old('result'), array('rows' => '2', 'class' => 'input-xlarge')) }}
-            <span class="help-inline">{{ $errors->first('result') }}</span>
-          </div>
-        </div>
-        <div class="control-group {{ $errors->has('physical_exam') ? 'error' : '' }}">
-          {{ Form::label('physical_exam', 'Physical Exam', array('class' => 'control-label')) }}
-          <div class="controls">
-            {{ Form::textarea('physical_exam', Input::old('physical_exam'), array('rows' => '2', 'class' => 'input-xlarge')) }}
-          </div>
-        </div>
+        <table class="table table-striped">
+          <tr>
+            <td class="control-group {{ $errors->has('service_id') ? 'error' : '' }}">
+              {{ Form::label('service_id', 'Service Given') }}
+              <select name="service_id" class="input-xlarge chzn-select" data-placeholder="Choose a type..." tabindex="2">
+                @foreach($services as $service)
+                <option value="{{ $service->id }}">{{ $service->service_name }}</option>
+                @endforeach
+              </select>
+            </td>
+            <td class="control-group {{ $errors->has('complaint') ? 'error' : '' }}">
+              {{ Form::label('complaint', 'Complaints') }}
+              {{ Form::textarea('complaint', $pawaits->complaint, array('rows' => '2', 'class' => 'input-xlarge')) }}
+            </td>
+          </tr>
+          <tr>
+            <td class="control-group {{ $errors->has('procedure') ? 'error' : '' }}">
+              {{ Form::label('procedure', 'Tests and Procedures') }}
+              {{ Form::textarea('procedure', Input::old('procedure'), array('rows' => '2', 'class' => 'input-xlarge')) }}
+            </td>
+            <td class="control-group {{ $errors->has('diagnosis') ? 'error' : '' }}">
+              {{ Form::label('diagnosis', 'Diagnosis') }}
+              {{ Form::textarea('diagnosis', Input::old('diagnosis'), array('rows' => '2', 'class' => 'input-xlarge')) }}
+            </td>
+          </tr>
+          <tr>
+            <td class="control-group {{ $errors->has('result') ? 'error' : '' }}">
+              {{ Form::label('result', 'Result') }}
+              {{ Form::textarea('result', Input::old('result'), array('rows' => '2', 'class' => 'input-xlarge')) }}
+            </td>
+            <td class="control-group {{ $errors->has('physical_exam') ? 'error' : '' }}">
+              {{ Form::label('physical_exam', 'Physical Exam') }}
+              {{ Form::textarea('physical_exam', Input::old('physical_exam'), array('rows' => '2', 'class' => 'input-xlarge')) }}
+            </td>
+          </tr>
+        </table>
+
         <div class="control-group {{ $errors->has('medication') ? 'error' : '' }}">
           {{ Form::label('medication', 'Medication', array('class' => 'control-label')) }}
           <div class="controls">
@@ -84,16 +82,16 @@
             </select>
             <select name="uom[]" class="input-small chzn-select" data-placeholder="Choose a type..." tabindex="2">
               <option value="tablet">tablet</option>
-              <option value="mat">mat</option>
+              <option value="mat">ML</option>
             </select>
-            {{ Form::text('qty[]', '', array('class' => 'input-mini', 'placeholder' => 'qty', 'style' => 'padding: 2.5px 6px; margin-bottom: 3px;')) }}
+            {{ Form::text('qty[]', '', array('class' => 'input-mini', 'placeholder' => 'qty', 'style' => 'margin-bottom: 1px;')) }}
             <a href="javascript:void(0)" class="addMedicationRowHtml btn"><i class="icon-plus"></i></a>
             <div id="medicationContainer"></div>
             <span class="help-inline">{{ $errors->first('medication') }}</span>
           </div>
         </div>
 
-        <div class="control-group">
+        <div class="pull-right">
           <div class="controls">
             {{ Form::submit('Save Record', array('class' => 'btn btn-primary')) }}
             &nbsp;<a href="{{ action('/') }}" class="btn">Cancel</a>
@@ -111,7 +109,7 @@
           </select>
           <select name="uom[]" class="input-small chzn-select" data-placeholder="Choose a type..." tabindex="2">
             <option value="tablet">tablet</option>
-            <option value="mat">mat</option>
+            <option value="mat">ML</option>
           </select>
           <input type="text" name="qty[]" class="input-mini" placeholder="qty" />
           <a href="javascript:void(0)" class="rmMedicationRowHtml btn"><i class="icon-minus"></i></a>
@@ -125,6 +123,9 @@
 <style type="text/css">
 #medicationContainer .mRow {
   margin: 6px 4px 0 0;
+}
+.table th, .table td {
+  border-top: none;
 }
 </style>
 @endsection
@@ -144,7 +145,7 @@ $(document).ready(function() {
         $(this).parent().remove();
         $("p").remove();
     });
-    $(".chzn-select").chosen(); 
+    //$(".chzn-select").chosen(); 
     $(".chzn-select-deselect").chosen({allow_single_deselect:true});
 });
 </script>

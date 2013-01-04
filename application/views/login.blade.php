@@ -34,7 +34,7 @@
 @parent
 <style>
 body {
-	background: url('../img/doctors.jpg') no-repeat 50px 90px;
+	background: url('img/doctors.jpg') no-repeat 50px 90px;
 }
 .pan {
 	background: #f2f2f2;

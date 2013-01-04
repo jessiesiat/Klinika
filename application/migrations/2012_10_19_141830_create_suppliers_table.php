@@ -19,15 +19,6 @@ class Create_Suppliers_Table {
             $table->string('email', 45);
             $table->timestamps();
 		});
-
-		DB::table('hc_suppliers')->insert(array(
-			'supplier_name' => 'PSRI',
-			'address' => 'Cityland Mandaluyong',
-			));
-		DB::table('hc_suppliers')->insert(array(
-			'supplier_name' => 'RightMed',
-			'address' => 'Pasay City',
-			));
 	}
 
 	/**

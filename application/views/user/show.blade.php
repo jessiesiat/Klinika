@@ -1,5 +1,11 @@
 @layout('layouts.main')
 
+@section('breadcrumb')
+  @parent
+  <li><a href="{{ URL::to_action('user') }}">Users</a> <span class="divider">/</span></li>
+  <li class="active">Details</li>
+@endsection
+
 @section('content')
 
     <ul class="nav nav-tabs" id="myTab">

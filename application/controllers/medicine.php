@@ -19,8 +19,10 @@ class Medicine_Controller extends Base_Controller {
 	public function get_new()
 	{
 		$suppliers = Supplier::get();
+		$uom = DB::table('ref_uom')->get();
 
 		return View::make('medicine.new')
+					->with('uom', $uom)
 					->with('suppliers', $suppliers);
 	}
 

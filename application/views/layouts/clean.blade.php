@@ -5,8 +5,6 @@
 
   <div class="container-fluid body">
 
-    @include('partials.notify')
-
     <div class="row-fluid" id="my-header">
       <div class="span7">
         <h3 class="prod_name"><a href="/laravel">Klinika</a>  <small>A Clinic Management Software</small></h3>
@@ -33,7 +31,7 @@
         </ul>
         </div>
       </div>
-
+      
       @yield('content') 
       
     </div>

@@ -1,5 +1,11 @@
 @layout('layouts.main')
 
+@section('breadcrumb')
+	@parent
+	<li><a href="{{ URL::to_action('patient') }}">Patients</a> <span class="divider">/</span></li>
+	<li class="active">Edit</li>
+@endsection
+
 @section('content')
 
 	{{ Form::open(action('patient.edit'), 'POST', array('class' => 'form-horizontal')) }}
@@ -56,7 +62,7 @@
 		    </div>
 	    </div>
 	    <div class="control-group {{ $errors->has('birthdate') ? 'error' : '' }}">
-			{{ Form::label('birthdate', 'Birth Date', array('class' => 'control-label')) }}
+			{{ Form::label('birthdate', 'Birth Date (yyyy-mm-dd)', array('class' => 'control-label')) }}
 			<div class="controls">
 				{{ Form::text('birthdate', $patient->birthdate, array('placeholder' => 'yyyy-mm-dd', 'class' => 'hasDatepicker')) }}
 				<span class="help-inline">{{ $errors->first('birthdate') }}</span>
@@ -130,7 +136,9 @@
 	        {{ Form::label('patient_type', 'Patient Type', array('class' => 'control-label')) }}
 		    <div class="controls">
 		      <select name="patient_type">
-	            <option value="A">Type A</option>
+		      	@foreach($patient_type as $type)
+	            <option value="{{ $type->id }}">{{ $type->patient_type }}</option>
+	            @endforeach
 			  </select>
 		      <span class="help-inline">{{ $errors->first('patient_type') }}</span>
 		    </div>

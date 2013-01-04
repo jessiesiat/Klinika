@@ -1,5 +1,15 @@
 @layout('layouts.main')
 
+@section('breadcrumb')
+	@parent
+	<li><a href="{{ URL::to_action('paymentmode') }}">Payment Mode</a> <span class="divider">/</span></li>
+	@if(isset($payment_mode))
+	<li class="active">Update</li>
+	@else
+	<li class="active">New</li>
+	@endif
+@endsection
+
 @section('content')
 	
 	@if(isset($payment_mode))

@@ -1,5 +1,10 @@
 @layout('layouts.main')
 
+@section('breadcrumb')
+    @parent
+    <li class="active">Inventory</li>
+@endsection
+
 @section('content')
 
     <div id="middle-bar-small">Inventory</div>

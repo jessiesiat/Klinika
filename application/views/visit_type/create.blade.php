@@ -1,5 +1,15 @@
 @layout('layouts.main')
 
+@section('breadcrumb')
+	@parent
+	<li><a href="{{ URL::to_action('visittype') }}">Visit Type</a> <span class="divider">/</span></li>
+	@if(isset($visit_type))
+	<li class="active">Update</li>
+	@else
+	<li class="active">New</li>
+	@endif
+@endsection
+
 @section('content')
 	
 	@if(isset($visit_type))

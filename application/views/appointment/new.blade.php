@@ -1,10 +1,20 @@
 @layout('layouts.main')
 
+@section('breadcrumb')
+	@parent
+	<li><a href="{{ URL::to_action('appointment') }}">Appointment</a> <span class="divider">/</span></li>
+	@if(isset($appointment))
+	<li class="active">Reschedule</li>
+	@else
+	<li class="active">New</li>
+	@endif
+@endsection
+
 @section('content')
 	
 	@if(isset($appointment))
 
-	<div id="middle-bar-small">Update Appointment</div>
+	<div id="middle-bar-small">Reschedule Appointment</div>
 	{{ Form::open(action('appointment.reSchedule'), 'POST', array('class' => 'form-horizontal')) }}
 		<div class="control-group {{ $errors->has('patient') ? 'error' : '' }}">
 			{{ Form::label('patient', 'Patient', array('class' => 'control-label')) }}
@@ -19,7 +29,7 @@
 		<div class="control-group {{ $errors->has('date') ? 'error' : '' }}">
 			{{ Form::label('date', 'Date and Time', array('class' => 'control-label')) }}
 			<div class="form-inline controls">
-				{{ Form::text('date', $date->format('Y-m-d'), array('placeholder' => 'yyyy-mm-dd', 'class' => 'datepicker hasDatepicker')) }}
+				{{ Form::text('date', $date->format('j F, Y'), array('placeholder' => 'yyyy-mm-dd', 'class' => 'datepicker hasDatepicker')) }}
 				<div class="input-append bootstrap-timepicker-component">
 					<input type="text" value="{{ $date->format('h:i A') }}" name="apt_time" class="timepicker-default input-small">
 					<span class="add-on">
@@ -29,17 +39,6 @@
 				<span class="help-inline">{{ $errors->first('date') }}</span>
 			</div>
 		</div>
-		<!--<div class="control-group {{ $errors->has('reason_id') ? 'error' : '' }}">
-			{{ Form::label('reason_id', 'Reason', array('class' => 'control-label')) }}
-			<div class="controls">
-				<select name="reason_id">
-					@foreach($apt_reasons as $apt_reason)
-					<option value="{{ $apt_reason->id }}" {{ ($appointment->reason_id == $apt_reason->id) ? 'selected' : '' }} >{{ $apt_reason->reason }}</option>
-					@endforeach
-				</select>
-				<span class="help-inline">{{ $errors->first('reason_id') }}</span>
-			</div>
-		</div>-->
 		<div class="control-group {{ $errors->has('notes') ? 'error' : '' }}">
 			{{ Form::label('notes', 'Notes', array('class' => 'control-label')) }}
 			<div class="controls">
@@ -74,7 +73,7 @@
 		<div class="control-group {{ $errors->has('date') ? 'error' : '' }}">
 			{{ Form::label('date', 'Date and Time', array('class' => 'control-label')) }}
 			<div class="form-inline controls">
-				{{ Form::text('date', Input::old('date'), array('placeholder' => 'yyyy-mm-dd', 'class' => 'datepicker hasDatepicker')) }}
+				{{ Form::text('date', (Input::old('date')) ? Input::old('date') : $date_today->format('j F, Y'), array('placeholder' => 'yyyy-mm-dd', 'class' => 'datepicker hasDatepicker')) }}
 				<div class="input-append bootstrap-timepicker-component">
 					<input type="text" name="apt_time" class="timepicker-default input-small">
 					<span class="add-on">

@@ -123,8 +123,11 @@ class Patient_Controller extends Base_Controller {
 	public function get_edit($patient_id)
 	{
 		$patient = Patient::find($patient_id);
+		$patient_type = PatientType::get();
 
-		return View::make('patient.edit')->with('patient', $patient);
+		return View::make('patient.edit')
+					->with('patient_type', $patient_type)
+					->with('patient', $patient);
 	}
 
 	public function post_edit()
@@ -134,13 +137,25 @@ class Patient_Controller extends Base_Controller {
 		$patient->f_name = Input::get('f_name');
 		$patient->email = Input::get('email');
 		$patient->mobile = Input::get('mobile');
+		$patient->gender = Input::get('gender');
+		$patient->race = Input::get('race');
+		$patient->education = Input::get('education');
 		$patient->landline_home = Input::get('landline_home');
+		$patient->landline_work = Input::get('landline_work');
 		$patient->marital_status = Input::get('marital_status');
 		$patient->address1 = Input::get('address1');
 		$patient->address2 = Input::get('address2');
 		$patient->smoker = Input::get('smoker');
 		$patient->drinker = Input::get('drinker');
 		$patient->blood_type = Input::get('blood_type');
+		$patient->company = Input::get('company');
+		$patient->hmo = Input::get('hmo');
+		$patient->hmo_no = Input::get('hmo_no');
+		$patient->credit_card = Input::get('credit_card');
+		$patient->insurance = Input::get('insurance');
+		$patient->spouse_name = Input::get('spouse_name');
+		$patient->spouse_contact_no = Input::get('spouse_contact_no');
+		$patient->notes = Input::get('notes');
 		$patient->save();
 
 		return Redirect::to_action('patient.details', array($patient->id))->with('success', 'Successfully save patient details');

@@ -19,17 +19,26 @@
       <div class="span3">
         <div class="sidebar-nav">
         <ul class="my-left-nav">
-          <li><i class="icon-chevron-right"></i>{{ HTML::link_to_action('patient', 'Patients') }}</li>
-          <li><i class="icon-chevron-right"></i>{{ HTML::link_to_action('appointment', 'Appointments') }}</li>
-          <li><i class="icon-chevron-right"></i>{{ HTML::link_to_action('billing', 'Patient Billing') }}</li>
-          <li><i class="icon-chevron-right"></i>{{ HTML::link_to_action('inventory', 'Inventory') }}</li>
-          <li><i class="icon-chevron-right"></i>{{ HTML::link_to_action('medicine', 'Medicines') }}</li>
-          <li><i class="icon-chevron-right"></i>{{ HTML::link_to_action('supplier', 'Suppliers') }}</li>
+          <li {{ (URI::segment(1) == 'patient') ? 'class="active_link"' : 'none' }}><i class="icon-chevron-right"></i>{{ HTML::link_to_action('patient', 'Patients') }}</li>
+          <li {{ (URI::segment(1) == 'appointment') ? 'class="active_link"' : 'none' }}><i class="icon-chevron-right"></i>{{ HTML::link_to_action('appointment', 'Appointments') }}</li>
+          <li {{ (URI::segment(1) == 'billing') ? 'class="active_link"' : 'none' }}><i class="icon-chevron-right"></i>{{ HTML::link_to_action('billing', 'Patient Billing') }}</li>
+          <li {{ (URI::segment(1) == 'inventory') ? 'class="active_link"' : 'none' }}><i class="icon-chevron-right"></i>{{ HTML::link_to_action('inventory', 'Inventory') }}</li>
+          <li {{ (URI::segment(1) == 'medicine') ? 'class="active_link"' : 'none' }}><i class="icon-chevron-right"></i>{{ HTML::link_to_action('medicine', 'Medicines') }}</li>
+          <li {{ (URI::segment(1) == 'supplier') ? 'class="active_link"' : 'none' }}><i class="icon-chevron-right"></i>{{ HTML::link_to_action('supplier', 'Suppliers') }}</li>
         </ul>
         </div>
       </div>
       <div class="span9">
-            @yield('content') 
+        <ul class="breadcrumb">
+        @section('breadcrumb')
+          @if(URL::base() == rtrim(URL::current(), '/'))
+          <li class="active">Home</li>
+          @else
+          <li><a href="{{ URL::to('/') }}">Home</a> <span class="divider">/</span></li>
+          @endif
+        @yield_section
+        </ul>
+        @yield('content') 
       </div>  
     </div>
 

@@ -1,6 +1,6 @@
 <?php
 
-Route::controller(array('patient', 'medicine', 'appointment', 'supplier', 'patientawait', 'billing', 'inventory', 'user', 'company', 'service', 'DoctorOrder', 'PatientType', 'VisitType', 'PaymentMode'));
+Route::controller(['patient', 'medicine', 'appointment', 'supplier', 'patientawait', 'billing', 'inventory', 'user', 'company', 'service', 'DoctorOrder', 'PatientType', 'VisitType', 'PaymentMode', 'DoctorStaff']);
 
 //Experimenting wit backbone
 
@@ -87,6 +87,46 @@ Route::group(array('before' => 'auth'), function()
 		return View::make('home.index')
 					->with('patients_awaits', $patients_awaits)
 					->with('for_billing', $for_billing);
+	});
+
+	Route::get('clinicinfo', function()
+	{
+		$clinic_info = DB::table('ref_clinic_info')->first();
+
+		return View::make('clinic_info')->with('clinic_info', $clinic_info);
+	});
+
+	Route::post('clinicinfo', function()
+	{
+		DB::table('ref_clinic_info')->update([
+			'clinic_name' => Input::get('clinic_name'),
+			'clinic_address' => Input::get('clinic_address'),
+			'clinic_email' => Input::get('clinic_email'),
+			'clinic_dept' => Input::get('clinic_dept'),
+			'clinic_type' => Input::get('clinic_type'),
+			]);
+		return Redirect::to('clinicinfo')->with('success', 'Successfully updated clinic info.');
+	});
+
+	Route::get('uom', function()
+	{
+		$uom = DB::table('ref_uom')->get();
+
+		return View::make('uom')->with('uom', $uom);
+	});
+
+	Route::post('uom', function()
+	{
+		DB::table('ref_uom')->insert(Input::get());
+
+		return Redirect::back()->with('success', 'Successfully added new UOM');
+	});
+
+	Route::get('uom/delete/(:num)', function($id)
+	{
+		$affected = DB::table('ref_uom')->where('id', '=', $id)->delete();
+
+		return Redirect::back()->with('success', 'Successfully remove UOM');
 	});
 
 });

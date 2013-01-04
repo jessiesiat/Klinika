@@ -29,16 +29,6 @@ class Create_Medicine_Table {
 			$table->timestamps();
 		});
 
-		DB::table('hc_medicines')->insert(array(
-				'medicine_name' => 'Alaxan FR',
-				'selling_price' => 8,
-				'desc' => 'for body pain',
-			));
-		DB::table('hc_medicines')->insert(array(
-				'medicine_name' => 'Medicol Advance',
-				'selling_price' => 9,
-				'desc' => 'for fever',
-			));
 	}
 
 	/**

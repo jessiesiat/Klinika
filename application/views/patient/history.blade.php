@@ -1,5 +1,11 @@
 @layout('layouts.main')
 
+@section('breadcrumb')
+    @parent
+    <li><a href="{{ URL::to_action('patient') }}">Patients</a> <span class="divider">/</span></li>
+    <li class="active">History</li>
+@endsection
+
 @section('content')
 
     <h4><a href="{{ action('patient.details', array($patient->id)) }}">{{ Str::upper($patient->f_name.' '.$patient->l_name) }}</a> Medical History</h4>

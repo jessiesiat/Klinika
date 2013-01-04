@@ -1,5 +1,11 @@
 @layout('layouts.main')
 
+@section('breadcrumb')
+	@parent
+	<li><a href="{{ URL::to_action('patient') }}">Patients</a> <span class="divider">/</span></li>
+	<li class="active">New</li>
+@endsection
+
 @section('content')
 
 	{{ Form::open(action('patient.new'), 'POST', array('class' => 'form-horizontal')) }}

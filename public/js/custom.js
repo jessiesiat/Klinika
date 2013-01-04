@@ -1,11 +1,11 @@
 $(function(){
       
   if($('.global-notice').html().length > 0){
-    $('.global-notice').slideDown();
+    $('.global-notice').fadeIn();
 
     setTimeout(function(){
-      $('.global-notice').slideUp();
-    }, 10000);
+      $('.global-notice').fadeOut('slow');
+    }, 8000);
 
     $('.global-notice').live('click', function(){
       $('.global-notice').slideUp();

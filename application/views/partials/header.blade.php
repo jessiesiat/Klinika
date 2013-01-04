@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>HC</title>
+    <title>Klinika (Clinic Management Software)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -16,6 +16,9 @@
       <style type="text/css">
       body{ 
         margin-top: 35px;
+      }
+      .navbar-inverse .navbar-inner {
+        background-image: -webkit-linear-gradient(top, #02415E, #043C61);
       }
        a.logout {
           color: #999;
@@ -38,7 +41,6 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
-
 
   </head>
   
@@ -79,6 +81,9 @@
                       <li>{{ HTML::link_to_action('PatientType', 'Patient Type') }}</li>
                       <li>{{ HTML::link_to_action('VisitType', 'Visit Type') }}</li>
                       <li>{{ HTML::link_to_action('PaymentMode', 'Payment Mode') }}</li>
+                      <li>{{ HTML::link_to_action('DoctorStaff', 'Doctor and Staff') }}</li>
+                      <li>{{ HTML::link_to_action('ClinicInfo', 'Clinic Info.') }}</li>
+                      <!--<li>{{ HTML::link_to_action('Uom', 'Uom') }}</li>-->
                     </ul>
                   </li>
                 </ul>

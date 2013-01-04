@@ -21,12 +21,12 @@ class Appointment_Controller extends Base_Controller {
 
 	public function get_new($id = NULL)
 	{
-		$today = time();
+		$today = new \DateTime;
 		$patient = $id ? Patient::find($id) : '';
 		$appointment_reason = AppointmentReason::get();
 
 		return View::make('appointment.new')
-		             ->with('today', $today)
+		             ->with('date_today', $today)
 		             ->with('patient', $patient)
 		             ->with('apt_reasons', $appointment_reason);
 	}
@@ -88,7 +88,6 @@ class Appointment_Controller extends Base_Controller {
 		$appointment_reason = AppointmentReason::get();
 		
 		return View::make('appointment.new')
-					->with('patient', '')
 		            ->with('apt_reasons', $appointment_reason)
 					->with('appointment', $appointment);
 	}

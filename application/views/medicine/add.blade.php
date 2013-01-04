@@ -5,6 +5,12 @@
  	{{ HTML::style('css/chosen.css') }}
 @endsection
 
+@section('breadcrumb')
+	@parent
+	<li><a href="{{ URL::to_action('medicine') }}">Medicine</a> <span class="divider">/</span></li>
+	<li class="active">Add</li>
+@endsection
+
 @section('content')
 
 	<div id="middle-bar-small">Add Medicine Stock</div>
